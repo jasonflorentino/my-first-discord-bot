@@ -23,7 +23,11 @@ const replies = [
     "You may rely on it.",
 ]
 
-module.exports = function (msg, args) {
-    const index = getRandomNum(replies.length);
-    msg.reply(replies[index]);
-};
+module.exports = {
+    name: "eightball",
+    description: "eightball",
+    execute(msg, args) {
+        const index = getRandomNum(replies.length);
+        msg.reply(replies[index]);
+    },
+}

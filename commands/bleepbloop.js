@@ -8,7 +8,11 @@ const replies = [
     'Hello, World!'
 ]
 
-module.exports = function (msg, args) {
-    const index = getRandomNum(replies.length);
-    msg.channel.send(replies[index]);
+module.exports = {
+    name: 'bleepbloop',
+    description: 'bleepbloop',
+    execute(msg, args) {
+        const index = getRandomNum(replies.length);
+        msg.channel.send(replies[index]);
+    },
 };
