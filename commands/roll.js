@@ -22,11 +22,11 @@ module.exports = function (msg, args) {
 
     message += `The total is ${total}!`;
 
-    console.log(message);
-    msg.channel.send(message);
-
+    
     if (message.length > 2000) {
         msg.channel.send(`That's too many rolls to put in one Discord message, but the total I got was ${total}.`);
+    } else {
+        msg.channel.send(message);
     }
 };
 
