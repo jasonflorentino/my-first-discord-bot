@@ -6,7 +6,6 @@ module.exports = {
     args: true,
     usage: "<#rolls>d<#sides> + <modifier> + ...",
     execute(msg, args) {
-        console.log(args);
         const newList = cleanArgs(args);
 
         let total = 0;
