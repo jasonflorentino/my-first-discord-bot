@@ -11,6 +11,8 @@ const replies = [
 module.exports = {
     name: 'bleepbloop',
     description: 'bleepbloop',
+    args: false,
+    usage: "[takes no arguments]",
     execute(msg, args) {
         const index = getRandomNum(replies.length);
         msg.channel.send(replies[index]);

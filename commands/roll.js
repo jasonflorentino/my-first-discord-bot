@@ -2,7 +2,9 @@ const getRandomNum = require('../util.js');
 
 module.exports = {
     name: "roll",
-    description: "roll",
+    description: "🎲 Rolls some dice.",
+    args: true,
+    usage: "<#rolls>d<#sides> + <modifier> + ...",
     execute(msg, args) {
         console.log(args);
         const newList = cleanArgs(args);

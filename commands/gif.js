@@ -3,13 +3,15 @@ const getRandomNum = require('../util.js');
 
 module.exports = {
     name: "gif",
-    description: "gif",
+    description: "📹 Gets a gif.",
+    args: false,
+    usage: "<keyword (defaults to 'tree')> <keyword> ...",
     async execute(msg, args) {
         let keywords = 'tree';
         if (args.length > 0) {
             keywords = args.join(" ");
         }
-        
+
         if (keywords.includes("tayne")) {
             keywords = "paul rudd computer";
         }

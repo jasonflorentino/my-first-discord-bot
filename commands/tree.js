@@ -2,7 +2,9 @@ const getRandomNum = require('../util.js');
 
 module.exports = {
     name: "tree",
-    description: "trees",
+    description: "🌳 Gets a random tree.",
+    args: false,
+    usage: "[takes no arguments]",
     execute(msg, args) {
         const index = getRandomNum(options.length);
         msg.channel.send(options[index].name + "!");

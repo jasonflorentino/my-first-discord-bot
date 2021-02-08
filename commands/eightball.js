@@ -25,7 +25,9 @@ const replies = [
 
 module.exports = {
     name: "eightball",
-    description: "eightball",
+    description: "🎱 Answers a yes-or-no question.",
+    args: true,
+    usage: "<yes or no question>",
     execute(msg, args) {
         const index = getRandomNum(replies.length);
         msg.reply(replies[index]);
