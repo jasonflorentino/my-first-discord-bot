@@ -6,13 +6,10 @@ module.exports = {
     args: true,
     usage: "<#rolls>d<#sides> + <modifier> + ...",
     execute(msg, args) {
-        console.log(args);
         const newList = cleanArgs(args);
 
         let total = 0;
         let message = "";
-
-        [ '1d8', '5d6', '3' ]
 
         for (let i = 0; i < newList.length; i++) {
             element = newList[i]
