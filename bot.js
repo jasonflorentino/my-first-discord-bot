@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const token = process.env.BOT_TOKEN;
-const prefix = "!"
+const prefix = process.env.PREFIX;
 
 /* CREATE DISCORD CLIENT + LOGIN */
 

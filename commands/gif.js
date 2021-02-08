@@ -9,6 +9,10 @@ module.exports = {
         if (args.length > 0) {
             keywords = args.join(" ");
         }
+        
+        if (keywords.includes("tayne")) {
+            keywords = "paul rudd computer";
+        }
 
         let url = `https://g.tenor.com/v1/search?q=${keywords}&key=${process.env.TENOR_KEY}&contentfilter=low`
         let response = await fetch(url);
