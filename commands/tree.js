@@ -179,8 +179,12 @@ const options = [
     {name: "Fiddlewoods", url: "https://en.wikipedia.org/wiki/Citharexylum"},
 ]
 
-module.exports = function trees(msg, args) {
-    const index = getRandomNum(options.length);
-    msg.channel.send(options[index].name + "!");
-    msg.channel.send(options[index].url);
+module.exports = {
+    name: "tree",
+    description: "trees",
+    execute(msg, args) {
+        const index = getRandomNum(options.length);
+        msg.channel.send(options[index].name + "!");
+        msg.channel.send(options[index].url);
+    },
 }

@@ -1,15 +1,19 @@
 require('dotenv').config();
+
 const token = process.env.BOT_TOKEN;
 const prefix = "!"
+
+/* CREATE DISCORD CLIENT + LOGIN */
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
 client.login(token);
-
 client.on('ready', readyDiscord);
 function readyDiscord() {
     console.log('💖 Ready!');
 }
+
+/* COMMAND NAME CREATION */
 
 const fs = require('fs');
 client.commands = new Discord.Collection();
@@ -19,6 +23,8 @@ for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	client.commands.set(command.name, command);
 }
+
+/* COMMAND HANDLING */
 
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
@@ -35,6 +41,3 @@ client.on('message', message => {
 		message.reply('There was an error trying to execute that command!');
 	}
 });
-
-// const commandHandler = require("./commands");
-// client.on('message', commandHandler);
