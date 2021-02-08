@@ -1,5 +1,15 @@
 const getRandomNum = require('../util.js');
 
+module.exports = {
+    name: "tree",
+    description: "trees",
+    execute(msg, args) {
+        const index = getRandomNum(options.length);
+        msg.channel.send(options[index].name + "!");
+        msg.channel.send(options[index].url);
+    },
+}
+
 const options = [
     {name: "Kauri Conifers", url: "https://en.wikipedia.org/wiki/Agathis"},
     {name: "Monkey-puzzle Trees", url: "https://en.wikipedia.org/wiki/Araucaria"},
@@ -178,13 +188,3 @@ const options = [
     {name: "Elms", url: "https://en.wikipedia.org/wiki/Ulmus"},
     {name: "Fiddlewoods", url: "https://en.wikipedia.org/wiki/Citharexylum"},
 ]
-
-module.exports = {
-    name: "tree",
-    description: "trees",
-    execute(msg, args) {
-        const index = getRandomNum(options.length);
-        msg.channel.send(options[index].name + "!");
-        msg.channel.send(options[index].url);
-    },
-}
