@@ -27,6 +27,7 @@ for (const file of commandFiles) {
 /* COMMAND HANDLING */
 
 client.on('message', message => {
+	// Return if message doesn't start with prefix, or is sent by bot
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
 	// Clean up input
@@ -37,7 +38,7 @@ client.on('message', message => {
     const command = client.commands.get(commandName)
 		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-	if (!command) return;
+	if (!command) return message.channel.send("I don't know how to do that. 🤔");
 
 	// Check if necessary arguments were given
 	if (command.args && !args.length) {
