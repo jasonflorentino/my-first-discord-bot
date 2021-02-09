@@ -13,6 +13,7 @@ module.exports = {
     description: 'bleepbloop',
     args: false,
     usage: "[takes no arguments]",
+    aliases: ["hello"],
     execute(msg, args) {
         const index = getRandomNum(replies.length);
         msg.channel.send(replies[index]);

@@ -29,13 +29,17 @@ for (const file of commandFiles) {
 client.on('message', message => {
 	if (!message.content.startsWith(prefix) || message.author.bot) return;
 
+	// Clean up input
 	const args = message.content.slice(prefix.length).trim().split(/ +/);
 	const commandName = args.shift().toLowerCase();
 
-	if (!client.commands.has(commandName)) return;
+	// Get command through name or alias
+    const command = client.commands.get(commandName)
+		|| client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName));
 
-    const command = client.commands.get(commandName);
+	if (!command) return;
 
+	// Check if necessary arguments were given
 	if (command.args && !args.length) {
 		let reply = `You didn't provide any arguments, ${message.author}!`;
 		
@@ -46,6 +50,7 @@ client.on('message', message => {
 		return message.channel.send(reply);
 	}
 
+	// Try executing command
 	try {
 		command.execute(message, args);
 	} catch (error) {

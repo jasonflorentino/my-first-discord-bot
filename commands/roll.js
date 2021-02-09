@@ -24,7 +24,6 @@ module.exports = {
 
         message += `The total is ${total}!`;
 
-        
         if (message.length > 2000) {
             msg.channel.send(`That's too many rolls to put in one Discord message, but the total I got was ${total}.`);
         } else {
